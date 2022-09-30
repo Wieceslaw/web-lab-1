@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Title</title>
+</head>
+<body>
+    <header>
+        <div>
+            <span>Lebedev  Wieceslaw</span>
+            <span>P32312</span>
+            <span>3310</span>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <img src="graph.png" alt="graph">
+        </div>
+        <div>
+            <form action="handler.php" method="get" id="graphForm">
+                <div>
+                    <p>X:</p>
+                    <label>
+                        <span>-5</span>
+                        <input type="radio" name="x" value="-5">
+                    </label>
+                    <label>
+                        <span>-4</span>
+                        <input type="radio" name="x" value="-4">
+                    </label>                    <label>
+                        <span>-3</span>
+                        <input type="radio" name="x" value="-3">
+                    </label>                    <label>
+                        <span>-2</span>
+                        <input type="radio" name="x" value="-2">
+                    </label>                    <label>
+                        <span>-1</span>
+                        <input type="radio" name="x" value="-1">
+                    </label>                    <label>
+                        <span>0</span>
+                        <input type="radio" name="x" value="0" checked>
+                    </label>                    <label>
+                        <span>1</span>
+                        <input type="radio" name="x" value="1">
+                    </label>                    <label>
+                        <span>2</span>
+                        <input type="radio" name="x" value="2">
+                    </label>                    <label>
+                        <span>3</span>
+                        <input type="radio" name="x" value="3">
+                    </label>
+                </div>
+
+                <p>Y:
+                    <input type="text" name="y" id="y" maxlength="6"/>
+                    <span id="error"></span>
+                </p>
+                <p>R: 
+                    <select name="r" id="r">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </p>
+                <p>
+                    <input type="submit">
+                </p>
+            </form>
+        </div>
+        <div>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <td>Date and time</td>
+                        <td>Delay</td>
+                        <td>X</td>
+                        <td>Y</td>
+                        <td>R</td>
+                        <td>Result</td>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+    </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
