@@ -7,7 +7,7 @@ if (!isset($_SESSION['history'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $path =  parse_url($_SERVER['REQUEST_URI'])['path'];
     $start_time = microtime(true);
-    if ($path == '/lab1/handler.php/hit') { // TODO: change path
+    if ($path == '/handler.php/hit') { // TODO: change path
         if (validate($_GET['x'], $_GET['y'], $_GET['r'])) {
             $hit = hitted($_GET['x'], $_GET['y'], $_GET['r']) ? 'hit' : 'miss';
             $result = array(
@@ -25,11 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             echo 'Bad request';
             exit(400);
         }
-    } elseif ($path == '/lab1/handler.php/history') {
+    } elseif ($path == '/handler.php/history') {
         echo json_encode($_SESSION['history']);
     } else {
         http_response_code(404);
-        echo 'Not found', $path;
+        echo 'Not found';
         exit(404);
     }
 }
