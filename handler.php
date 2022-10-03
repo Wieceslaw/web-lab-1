@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         echo json_encode($_SESSION['history']);
     } else {
         http_response_code(404);
-        echo 'Not found';
+        echo 'Not found', $path;
         exit(404);
     }
 }
