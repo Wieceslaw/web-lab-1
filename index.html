@@ -1,93 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Title</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            font-family: monospace;
+            color: orange;
+            font-size: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            background-color: red;
+            padding: 10px;
+            font-family: monospace;
+            color: orange;
+            font-size: 50px;
+        }
+
+        html {
+            background-image: url(https://i.yapx.ru/IoL9U.gif);
+            background-size: cover;
+        }
+
+        .panel {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .x {
+            flex-wrap: wrap;
+        }
+
+        form {
+            display: flex;
+            align-content: space-around;
+            flex-direction: column;
+            padding: 4%;
+        }
+
+        .graph {
+            background-color: orange;
+            background-size: cover;
+            border-width: 2px;
+            border-style: solid;
+            border-color: black;
+            width: 250px;
+            height: 250px;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        table, th, td {
+            border-width: 3px;
+            border-style: solid;
+            border-color: orange;
+        }
+
+        tbody td {
+            text-align: center;
+        }
+
+        /* thead,
+        td {
+            padding: 5px;
+        } */
+
+        thead {
+            background: rgb(255, 0, 0);
+        }
+
+        .graph-axle-line {
+            stroke: black;
+        }
+
+        .submit-button {
+            width: 128px;
+            height: 32px;
+        }
+
+        .submit-button:hover {
+            background-color: red;
+        }
+        .container {}
+    </style>
 </head>
+
 <body>
     <header>
         <div>
-            <span>Lebedev  Wieceslaw</span>
+            <span>Lebedev Więcesław</span>
             <span>P32312</span>
             <span>3310</span>
         </div>
     </header>
-
     <main>
-        <div>
-            <img src="graph.png" alt="graph">
-        </div>
-        <div>
-            <form action="handler.php" method="get" id="graphForm">
-                <div>
-                    <p>X:</p>
-                    <label>
-                        <span>-5</span>
-                        <input type="radio" name="x" value="-5">
-                    </label>
-                    <label>
-                        <span>-4</span>
-                        <input type="radio" name="x" value="-4">
-                    </label>                    <label>
-                        <span>-3</span>
-                        <input type="radio" name="x" value="-3">
-                    </label>                    <label>
-                        <span>-2</span>
-                        <input type="radio" name="x" value="-2">
-                    </label>                    <label>
-                        <span>-1</span>
-                        <input type="radio" name="x" value="-1">
-                    </label>                    <label>
-                        <span>0</span>
-                        <input type="radio" name="x" value="0" checked>
-                    </label>                    <label>
-                        <span>1</span>
-                        <input type="radio" name="x" value="1">
-                    </label>                    <label>
-                        <span>2</span>
-                        <input type="radio" name="x" value="2">
-                    </label>                    <label>
-                        <span>3</span>
-                        <input type="radio" name="x" value="3">
-                    </label>
-                </div>
+        <div class="container">
+            <div class="panel">
+                <div class="graph">
+                    <!-- <img src="graph.png" alt="graph"> -->
+                    <svg viewBox="0 0 299 299">
+                        <!-- axles -->
+                        <text class="graph-axle-text" x="290" y="140">x</text>
+                        <line class="graph-axle-line" x1="0" x2="295" y1="150" y2="150"/>
+                        <polygon class="graph-axle-arrow" points="299,150 290,155 290,145"/>
 
-                <p>Y:
-                    <input type="text" name="y" id="y" maxlength="6"/>
-                    <span id="error"></span>
-                </p>
-                <p>R: 
-                    <select name="r" id="r">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </p>
-                <p>
-                    <input type="submit">
-                </p>
-            </form>
-        </div>
-        <div>
-            <table id="table">
-                <thead>
-                    <tr>
-                        <td>Date and time</td>
-                        <td>Delay</td>
-                        <td>X</td>
-                        <td>Y</td>
-                        <td>R</td>
-                        <td>Result</td>
-                    </tr>
-                </thead>
-                <tbody id="table-body"></tbody>
-            </table>
+                        <text class="graph-axle-text" x="160" y="10">y</text>
+                        <line class="graph-axle-line" x1="150" x2="150" y1="5" y2="300"/>
+                        <polygon class="graph-axle-arrow" points="150,1 145,10 155,10"/>
+
+                        <!-- points -->
+                        <line class="graph-point" x1="50" x2="50" y1="145" y2="155"/>
+                        <line class="graph-point" x1="100" x2="100" y1="145" y2="155"/>
+                        <line class="graph-point" x1="200" x2="200" y1="145" y2="155"/>
+                        <line class="graph-point" x1="250" x2="250" y1="145" y2="155"/>
+
+                        <line class="graph-point" x1="145" x2="155" y1="250" y2="250"/>
+                        <line class="graph-point" x1="145" x2="155" y1="200" y2="200"/>
+                        <line class="graph-point" x1="145" x2="155" y1="100" y2="100"/>
+                        <line class="graph-point" x1="145" x2="155" y1="50" y2="50"/>
+
+                        <!-- labels -->
+                        <text class="graph-label r-whole-neg" text-anchor="middle" x="50" y="140">-R</text>
+                        <text class="graph-label r-half-neg" text-anchor="middle" x="100" y="140">-R/2</text>
+                        <text class="graph-label r-half-pos" text-anchor="middle" x="200" y="140">R/2</text>
+                        <text class="graph-label r-whole-pos" text-anchor="middle" x="250" y="140">R</text>
+
+                        <text class="graph-label r-whole-neg" text-anchor="start" x="160" y="255">-R</text>
+                        <text class="graph-label r-half-neg" text-anchor="start" x="160" y="205">-R/2</text>
+                        <text class="graph-label r-half-pos" text-anchor="start" x="160" y="105">R/2</text>
+                        <text class="graph-label r-whole-pos" text-anchor="start" x="160" y="55">R</text>
+                    </svg> 
+                </div>
+                <div>
+                    <form action="handler.php" method="get" id="graphForm">
+                        <fieldset class="x">
+                            <legend>X cord</legend>
+                            <label>
+                                <span>-5</span>
+                                <input type="radio" name="x" value="-5">
+                            </label>
+                            <label>
+                                <span>-4</span>
+                                <input type="radio" name="x" value="-4">
+                            </label> <label>
+                                <span>-3</span>
+                                <input type="radio" name="x" value="-3">
+                            </label> <label>
+                                <span>-2</span>
+                                <input type="radio" name="x" value="-2">
+                            </label> <label>
+                                <span>-1</span>
+                                <input type="radio" name="x" value="-1">
+                            </label> <label>
+                                <span>0</span>
+                                <input type="radio" name="x" value="0" checked>
+                            </label> <label>
+                                <span>1</span>
+                                <input type="radio" name="x" value="1">
+                            </label> <label>
+                                <span>2</span>
+                                <input type="radio" name="x" value="2">
+                            </label> <label>
+                                <span>3</span>
+                                <input type="radio" name="x" value="3">
+                            </label>
+                        </fieldset>
+                        <div>
+                            <span>Y cord</span>
+                            <input type="text" name="y" id="y" maxlength="6" autocomplete="off"
+                                placeholder="(-5...5)" />
+                            <span id="error"></span>
+                        </div>
+                        <div>
+                            <span>R</span>
+                            <select name="r" id="r">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <p>
+                            <input type="submit" value="Send" class="submit-button">
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <table id="table">
+                    <caption>
+                        Result table
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Date and time</th>
+                            <th>Delay</th>
+                            <th>X</th>
+                            <th>Y</th>
+                            <th>R</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
         </div>
     </main>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

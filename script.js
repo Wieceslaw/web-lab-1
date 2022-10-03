@@ -103,7 +103,6 @@ function sendData(event) {
 function fetchHistory() {
     $.ajax({
         url: 'handler.php/history',
-        processData: false,
         type: 'GET',
         success: function(data){
             add_elements_to_table(data)
