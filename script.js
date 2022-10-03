@@ -108,6 +108,7 @@ function fetchHistory() {
             add_elements_to_table(data)
         },
         error: function(data) {
+            console.log(data)
             alert(data)
         }
     })
