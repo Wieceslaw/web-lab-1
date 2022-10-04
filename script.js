@@ -64,6 +64,7 @@ function add_elements_to_table(elements) {
 
 function sendData(event) {
     // validation
+    handleError("")
     if (!getY()) {
         console.log("can not be empty")
         handleError("Y can not be empty")

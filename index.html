@@ -40,21 +40,27 @@
             flex-wrap: wrap;
         }
 
-        form {
+        form[method="get"] {
             display: flex;
             align-content: space-around;
             flex-direction: column;
-            padding: 4%;
+            padding: 3%;
         }
 
         .graph {
-            background-color: orange;
-            background-size: cover;
             border-width: 2px;
             border-style: solid;
             border-color: black;
+            margin: 20px;
             width: 250px;
             height: 250px;
+        }
+
+        .graph-image {
+            width: 250px;
+            height: 250px;
+            background-color: orange;
+            background-size: cover;
         }
 
         table {
@@ -72,11 +78,6 @@
             text-align: center;
         }
 
-        /* thead,
-        td {
-            padding: 5px;
-        } */
-
         thead {
             background: rgb(255, 0, 0);
         }
@@ -93,7 +94,22 @@
         .submit-button:hover {
             background-color: red;
         }
-        .container {}
+
+        #error {
+            color: red;
+        }
+
+        .graph-point {
+            stroke: black;
+        }
+
+        .container {
+        }
+        
+        .form-input {
+            margin: 5px;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -109,14 +125,39 @@
         <div class="container">
             <div class="panel">
                 <div class="graph">
-                    <!-- <img src="graph.png" alt="graph"> -->
-                    <svg viewBox="0 0 299 299">
+                    <svg viewBox="0 0 300 300" class="graph-image">
+                        <!-- polygons -->
+                        <path d="
+                            M 100 150  
+                            A 50 50, 0, 0, 1, 150 100
+                            L 150 150
+                        "
+                        fill="red"
+                        />
+
+                        <polygon points="
+                        150, 150  
+                        100, 150,
+                        100, 250,
+                        150, 250
+                        " 
+                        fill="red"
+                        />
+
+                        <polygon points="
+                        150, 150
+                        250, 150
+                        150, 250
+                        "
+                        fill="red"
+                        />
+
                         <!-- axles -->
-                        <text class="graph-axle-text" x="290" y="140">x</text>
+                        <text class="graph-axle-text" x="285" y="140">x</text>
                         <line class="graph-axle-line" x1="0" x2="295" y1="150" y2="150"/>
                         <polygon class="graph-axle-arrow" points="299,150 290,155 290,145"/>
 
-                        <text class="graph-axle-text" x="160" y="10">y</text>
+                        <text class="graph-axle-text" x="160" y="15">y</text>
                         <line class="graph-axle-line" x1="150" x2="150" y1="5" y2="300"/>
                         <polygon class="graph-axle-arrow" points="150,1 145,10 155,10"/>
 
@@ -143,61 +184,68 @@
                         <text class="graph-label r-whole-pos" text-anchor="start" x="160" y="55">R</text>
                     </svg> 
                 </div>
-                <div>
-                    <form action="handler.php" method="get" id="graphForm">
-                        <fieldset class="x">
-                            <legend>X cord</legend>
-                            <label>
-                                <span>-5</span>
-                                <input type="radio" name="x" value="-5">
-                            </label>
-                            <label>
-                                <span>-4</span>
-                                <input type="radio" name="x" value="-4">
-                            </label> <label>
-                                <span>-3</span>
-                                <input type="radio" name="x" value="-3">
-                            </label> <label>
-                                <span>-2</span>
-                                <input type="radio" name="x" value="-2">
-                            </label> <label>
-                                <span>-1</span>
-                                <input type="radio" name="x" value="-1">
-                            </label> <label>
-                                <span>0</span>
-                                <input type="radio" name="x" value="0" checked>
-                            </label> <label>
-                                <span>1</span>
-                                <input type="radio" name="x" value="1">
-                            </label> <label>
-                                <span>2</span>
-                                <input type="radio" name="x" value="2">
-                            </label> <label>
-                                <span>3</span>
-                                <input type="radio" name="x" value="3">
-                            </label>
-                        </fieldset>
+                <form action="handler.php" method="get" id="graphForm">
+                    <fieldset class="x form-input">
+                        <legend>X</legend>
+                        <label>
+                            <span>-5</span>
+                            <input type="radio" name="x" value="-5">
+                        </label>
+                        <label>
+                            <span>-4</span>
+                            <input type="radio" name="x" value="-4">
+                        </label> 
+                        <label>
+                            <span>-3</span>
+                            <input type="radio" name="x" value="-3">
+                        </label> 
+                        <label>
+                            <span>-2</span>
+                            <input type="radio" name="x" value="-2">
+                        </label> 
+                        <label>
+                            <span>-1</span>
+                            <input type="radio" name="x" value="-1">
+                        </label> 
+                        <label>
+                            <span>0</span>
+                            <input type="radio" name="x" value="0" checked>
+                        </label> 
+                        <label>
+                            <span>1</span>
+                            <input type="radio" name="x" value="1">
+                        </label> 
+                        <label>
+                            <span>2</span>
+                            <input type="radio" name="x" value="2">
+                        </label> 
+                        <label>
+                            <span>3</span>
+                            <input type="radio" name="x" value="3">
+                        </label>
+                    </fieldset>
+                    <div class="form-input">
                         <div>
-                            <span>Y cord</span>
+                            <span>Y</span>
                             <input type="text" name="y" id="y" maxlength="6" autocomplete="off"
                                 placeholder="(-5...5)" />
-                            <span id="error"></span>
                         </div>
-                        <div>
-                            <span>R</span>
-                            <select name="r" id="r">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <p>
-                            <input type="submit" value="Send" class="submit-button">
-                        </p>
-                    </form>
-                </div>
+                        <span id="error"></span>
+                    </div>
+                    <div class="form-input">
+                        <span>R</span>
+                        <select name="r" id="r">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <p>
+                        <input type="submit" value="Send" class="submit-button form-input">
+                    </p>
+                </form>
             </div>
             <div>
                 <table id="table">
