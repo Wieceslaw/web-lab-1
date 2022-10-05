@@ -1,4 +1,5 @@
 <?php 
+$start_time = microtime(true);
 session_start();
 if (!isset($_SESSION['history'])) {
     $_SESSION['history'] = array();
@@ -6,7 +7,6 @@ if (!isset($_SESSION['history'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $path =  parse_url($_SERVER['REQUEST_URI'])['path'];
-    $start_time = microtime(true);
     if ($path == '/~s336704/handler.php/hit') { // TODO: change path
         if (validate($_GET['x'], $_GET['y'], $_GET['r'])) {
             $hit = hitted($_GET['x'], $_GET['y'], $_GET['r']) ? 'hit' : 'miss';
