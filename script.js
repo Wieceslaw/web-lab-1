@@ -7,6 +7,16 @@ const table = document.querySelector('#table-body')
 
 function handleError(errorMessage) {
     error.textContent = errorMessage
+    if (errorMessage) {
+        error.classList.add("error")
+        y.classList.add("bounce")
+        setTimeout(function() {
+            y.classList.remove("bounce");
+          }, 1000); 
+    }
+    else {
+        error.classList.remove("error")
+    }
 }
 
 function formatFloat(val) {
