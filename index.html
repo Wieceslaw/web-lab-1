@@ -66,12 +66,18 @@
         table {
             table-layout: fixed;
             width: 100%;
+            background-color:rgba(0, 0, 0, 0.5);
         }
 
-        table, th, td {
+        table, th {
             border-width: 3px;
             border-style: solid;
             border-color: orange;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 5px;
         }
 
         tbody td {
@@ -97,28 +103,71 @@
 
         #error {
             color: red;
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .graph-point {
             stroke: black;
-        }
-
-        .container {
         }
         
         .form-input {
             margin: 5px;
             width: 100%;
         }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .x {
+            border-color: orange;
+            border-width: 5px;
+            padding: 10px;
+        }
+
+        .x legend {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        
+        .x input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+
+            border: 2px solid #999;
+            transition: 0.2s all linear;
+            outline: none;
+            margin-right: 5px;
+
+            position: relative;
+            top: 4px;
+
+            border-color: orange;
+        }
+
+        .x input:checked {
+            background-color: red;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <div>
+        <div class="header-container">
+            <object data="hammer.svg" width="50px" height="50px"></object>
             <span>Lebedev Więcesław</span>
             <span>P32312</span>
             <span>3310</span>
+            <object data="star.svg" width="50px" height="50px"></object>
         </div>
     </header>
     <main>
