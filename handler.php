@@ -1,5 +1,4 @@
-<?php 
-$start_time = microtime(true);
+<?php
 session_start();
 if (!isset($_SESSION['history'])) {
     $_SESSION['history'] = array();
@@ -12,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $hit = hitted($_GET['x'], $_GET['y'], $_GET['r']) ? 'hit' : 'miss';
             $result = array(
                 'datetime' => time(),
-                'delay' => round((microtime(true) - $start_time) * 1000, 2),
+                'delay' => round((microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']) * 1000, 2),
                 'x' => $_GET['x'],
                 'y' => $_GET['y'],
                 'r' => $_GET['r'],
