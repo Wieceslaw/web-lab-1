@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width">
     <title>Title</title>
     <style>
+        @font-face {
+            font-family: 'MyFont';
+            src: url(kremlin.ttf) format("truetype");
+        }
         * {
             margin: 0%;
             padding: 0%;
-            font-family: monospace;
+            font-family: 'MyFont';
             color: #F8C104;
             font-size: 20px;
         }
@@ -19,9 +23,12 @@
             justify-content: center;
             background-color: red;
             padding: 10px;
+        }
+
+        header * {
             font-family: monospace;
             color: #F8C104;
-            font-size: 50px;
+            font-size: 30px;
         }
 
         html {
@@ -60,6 +67,10 @@
             height: 250px;
             background-color: #F8C104;
             background-size: cover;
+        }
+
+        .graph-image * {
+            font-family: monospace;
         }
 
         table {
@@ -117,7 +128,7 @@
         .header-container {
             display: flex;
             justify-content: space-between;
-            width: 500px;
+            width: 700px;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -156,6 +167,7 @@
         .x input:checked {
             background-color: #f8bf04c0;
         }
+
     </style>
 </head>
 
@@ -163,7 +175,7 @@
     <header>
         <div class="header-container">
             <object data="hammer.svg" width="50px" height="50px"></object>
-            <span>Lebedev Więcesław</span>
+            <span>Lebedev Wieceslaw</span>
             <span>P32312</span>
             <span>3310</span>
             <object data="star.svg" width="50px" height="50px"></object>
